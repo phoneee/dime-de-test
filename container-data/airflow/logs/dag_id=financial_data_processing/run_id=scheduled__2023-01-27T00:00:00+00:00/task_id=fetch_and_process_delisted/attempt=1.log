@@ -1,0 +1,13 @@
+[2023-12-20T19:32:55.167+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: financial_data_processing.fetch_and_process_delisted scheduled__2023-01-27T00:00:00+00:00 [queued]>
+[2023-12-20T19:32:55.193+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: financial_data_processing.fetch_and_process_delisted scheduled__2023-01-27T00:00:00+00:00 [queued]>
+[2023-12-20T19:32:55.195+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2023-12-20T19:32:55.334+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): fetch_and_process_delisted> on 2023-01-27 00:00:00+00:00
+[2023-12-20T19:32:55.371+0000] {standard_task_runner.py:57} INFO - Started process 387 to run task
+[2023-12-20T19:32:55.412+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'financial_data_processing', 'fetch_and_process_delisted', 'scheduled__2023-01-27T00:00:00+00:00', '--job-id', '47', '--raw', '--subdir', 'DAGS_FOLDER/finacial.py', '--cfg-path', '/tmp/tmpq1elw_o5']
+[2023-12-20T19:32:55.449+0000] {standard_task_runner.py:85} INFO - Job 47: Subtask fetch_and_process_delisted
+[2023-12-20T19:32:56.162+0000] {task_command.py:416} INFO - Running <TaskInstance: financial_data_processing.fetch_and_process_delisted scheduled__2023-01-27T00:00:00+00:00 [running]> on host 50d04165f2ca
+[2023-12-20T19:32:57.264+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='financial_data_processing' AIRFLOW_CTX_TASK_ID='fetch_and_process_delisted' AIRFLOW_CTX_EXECUTION_DATE='2023-01-27T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-27T00:00:00+00:00'
+[2023-12-20T19:32:58.554+0000] {python.py:194} INFO - Done. Returned value was: None
+[2023-12-20T19:32:58.597+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=financial_data_processing, task_id=fetch_and_process_delisted, execution_date=20230127T000000, start_date=20231220T193255, end_date=20231220T193258
+[2023-12-20T19:32:59.038+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-12-20T19:32:59.352+0000] {taskinstance.py:2778} INFO - 1 downstream tasks scheduled from follow-on schedule check
