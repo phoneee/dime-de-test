@@ -22,11 +22,14 @@ To get started with the deployment:
     docker-compose up
     ```
    
-you can check script at Airflow UI
+you can check script at Airflow UI by
 ```
 localhost:8080
 ```
 
+script will run daily or trigger it manually
 
-Improvememt:
-- Airflow deplayment
+
+Improvements:
+- Airflow deployment modularity
+- setup connection key
