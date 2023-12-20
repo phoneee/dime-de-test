@@ -16,7 +16,11 @@ def map_dividends_data(data):
     # Convert date columns to datetime format
     date_columns = ['date', 'recordDate', 'paymentDate', 'declarationDate']
     for col in date_columns:
-        df[col] = pd.to_datetime(df[col])
+        try:
+            df[col] = pd.to_datetime(df[col])
+        except Exception as e:
+            print(e)
+            print(data)
 
     return df
 

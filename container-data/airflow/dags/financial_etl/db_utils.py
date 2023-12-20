@@ -1,5 +1,6 @@
 from sqlalchemy import create_engine, Table, select
 from .models import metadata
+import pandas as pd
 
 
 def create_db_engine(db_connection_string):
@@ -11,6 +12,9 @@ def create_db_engine(db_connection_string):
 def insert_into_db(df, table, engine):
     with engine.connect() as conn:
         for _, row in df.iterrows():
+            # Convert NaN to None
+            row = row.where(pd.notna(row), None)
+
             # Check if the record already exists
             exists_query = select([table]).where(
                 table.c.symbol == row['symbol'] and
@@ -20,7 +24,7 @@ def insert_into_db(df, table, engine):
 
             if not result:
                 # Record does not exist, insert new record
-                insert_query = table.insert().values(row)
+                insert_query = table.insert().values(row.to_dict())
                 conn.execute(insert_query)
 
 

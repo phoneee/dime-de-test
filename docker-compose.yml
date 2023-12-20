@@ -53,10 +53,12 @@ services:
 
   python:
     build: ./python
+    container_name: finacial-python
     ports:
       - "8888:8888"
     volumes:
       - ./container-data/notebooks:/opt/app/data
+      - ./container-data/airflow/dags/financial_etl:/opt/app/data/financial_etl
     entrypoint: sh -c 'jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --notebook-dir=/opt/app/data --allow-root'
 
   airflow-metadata:
